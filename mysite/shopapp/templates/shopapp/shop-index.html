@@ -7,20 +7,15 @@
 {% block body %}
     <h1>Hello Shop Index!</h1>
 
-    <div>
-        <ul>
-            {% for name, price in products|dictsort:1 %}
-                <li>{{ name }} ({{ name|length }}) for {{ price }}$</li>
-                {% if name|length_is:'7' %}
-                    <span>Lucky product!</span>
-                {% endif %}
-            {% empty %}
-                No products here
-            {% endfor %}
-        </ul>
-    </div>
+    <h3>Here is a list of links:</h3>
 
     <div>
-        {% lorem 3 p random %}
+        <ul>
+            {% for url_name, desc in menu %}
+                <li><a href="/shop/{{ url_name }}/">{{ url_name }}</a> - {{ desc }}</li>
+            {% empty %}
+                No links here
+            {% endfor %}
+        </ul>
     </div>
 {% endblock %}
