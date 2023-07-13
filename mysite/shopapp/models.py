@@ -10,6 +10,9 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     archived = models.BooleanField(default=False)
 
+    def __str__(self) -> str:
+        return f'{self.pk}. "{self.name}"'
+
 
 class Order(models.Model):
     delivery_adress = models.TextField(null=False, blank=True)
@@ -17,3 +20,6 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     products = models.ManyToManyField(Product, related_name="orders")
+
+    def __str__(self) -> str:
+        return f'{self.pk}. {self.user}'
