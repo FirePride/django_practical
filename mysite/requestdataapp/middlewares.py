@@ -21,7 +21,7 @@ class ThrottlingMiddleware:
 
     def __call__(self, request: HttpRequest):
         user_ip = self.get_user_ip(request)
-        time_delay = 10  # in seconds
+        time_delay = 1  # in seconds
 
         if user_ip in self.user_requests:
             if (datetime.now().timestamp() - self.user_requests[user_ip]) < time_delay:
