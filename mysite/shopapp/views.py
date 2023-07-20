@@ -8,8 +8,8 @@ from .models import Product, Order
 
 def shop_index(request: HttpRequest):
     menu = [
-        ('products', 'Products in the shop'),
-        ('orders', 'Orders in the shop'),
+        ('shopapp:products_list', 'products', 'Products in the shop'),
+        ('shopapp:orders_list', 'orders', 'Orders in the shop'),
     ]
     context = {
         "menu": menu,

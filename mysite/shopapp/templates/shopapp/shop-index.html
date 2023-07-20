@@ -11,8 +11,8 @@
 
     <div>
         <ul>
-            {% for url_name, desc in menu %}
-                <li><a href="/shop/{{ url_name }}/">{{ url_name }}</a> - {{ desc }}</li>
+            {% for link, url_name, desc in menu %}
+                <li><a href="{% url link %}">{{ url_name }}</a> - {{ desc }}</li>
             {% empty %}
                 No links here
             {% endfor %}
