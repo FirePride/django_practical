@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+from myauth.models import Profile
+
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
@@ -9,6 +11,7 @@ class Product(models.Model):
     discount = models.PositiveSmallIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     archived = models.BooleanField(default=False)
+    created_by = models.ForeignKey(Profile, on_delete=models.PROTECT)
 
     def __str__(self) -> str:
         return f'{self.pk}. "{self.name}"'
