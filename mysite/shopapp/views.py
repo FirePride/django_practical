@@ -1,7 +1,8 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin
-from django.http import HttpRequest, HttpResponseRedirect
+from django.http import HttpRequest, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, reverse
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from myauth.models import Profile
@@ -111,3 +112,24 @@ class OrderUpdateView(UpdateView):
 class OrderDeleteView(DeleteView):
     model = Order
     success_url = reverse_lazy("shopapp:orders_list")
+
+
+class OrdersExportView(UserPassesTestMixin, View):
+    def test_func(self):
+        return self.request.user.is_staff
+
+    @staticmethod
+    def get(request: HttpRequest) -> JsonResponse:
+        orders = Order.objects.order_by("pk").all()
+        orders_data = [
+            {
+                "pk": order.pk,
+                "delivery_adress": order.delivery_adress,
+                "promocode": order.promocode,
+                "user": order.user,
+                "products": order.products,
+            }
+            for order in orders
+        ]
+
+        return JsonResponse({"orders": orders_data})

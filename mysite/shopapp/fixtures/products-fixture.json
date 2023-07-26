@@ -1,0 +1,14 @@
+[
+  {
+    "fields": {
+      "name": "Laptop",
+      "description": "",
+      "price": "1999.00",
+      "discount": 0,
+      "created_at": "2023-07-08T15:44:40.089Z",
+      "archived": true,
+      "created_by": 1
+    },
+    "model": "shopapp.product",
+    "pk": 1
+  }, {"model": "shopapp.product", "pk": 2, "fields": {"name": "Desktop", "description": "", "price": "2599.00", "discount": 10, "created_at": "2023-07-08T15:44:40.089Z", "archived": false, "created_by": 1}}, {"model": "shopapp.product", "pk": 3, "fields": {"name": "Smartphone", "description": "", "price": "987.00", "discount": 25, "created_at": "2023-07-08T15:44:40.089Z", "archived": false, "created_by": 1}}, {"model": "shopapp.product", "pk": 4, "fields": {"name": "Tablet", "description": "Great Tablet!", "price": "1234.00", "discount": 0, "created_at": "2023-07-18T08:47:21.404Z", "archived": true, "created_by": 1}}, {"model": "shopapp.product", "pk": 5, "fields": {"name": "Phone 2", "description": "Test create", "price": "1234.00", "discount": 15, "created_at": "2023-07-22T14:37:18.557Z", "archived": false, "created_by": 3}}]
