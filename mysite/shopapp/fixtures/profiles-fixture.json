@@ -1,0 +1,10 @@
+[
+  {
+    "fields": {
+      "user": 1,
+      "bio": "",
+      "agreement_accepted": false
+    },
+    "model": "myauth.profile",
+    "pk": 1
+  }, {"model": "myauth.profile", "pk": 2, "fields": {"user": 2, "bio": "test profile", "agreement_accepted": false}}, {"model": "myauth.profile", "pk": 3, "fields": {"user": 3, "bio": "", "agreement_accepted": false}}]

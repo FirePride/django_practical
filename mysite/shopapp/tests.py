@@ -47,12 +47,14 @@ class OrderDetailViewTestCase(TestCase):
 class OrdersExportTestCase(TestCase):
     fixtures = [
         'users-fixture.json',
+        'profiles-fixture.json',
         'products-fixture.json',
         'orders-fixture.json',
     ]
 
     @classmethod
     def setUpClass(cls):
+        super(OrdersExportTestCase, cls).setUpClass()
         cls.user = User.objects.create_user(
             username="test_staff",
             password="Qwerty12345",
@@ -77,8 +79,8 @@ class OrdersExportTestCase(TestCase):
                 "pk": order.pk,
                 "delivery_adress": order.delivery_adress,
                 "promocode": order.promocode,
-                "user": order.user,
-                "products": order.products,
+                "user": order.user.id,
+                "products": [product.id for product in order.products.all()],
             }
             for order in orders
         ]
