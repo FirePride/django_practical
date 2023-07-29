@@ -50,7 +50,7 @@ class AvatarUpdateView(UserPassesTestMixin, UpdateView):
 class RegisterView(CreateView):
     form_class = UserCreationForm
     template_name = "myauth/register.html"
-    success_url = reverse_lazy("myauth:profile")
+    success_url = reverse_lazy("myauth:about-me")
 
     def form_valid(self, form):
         response = super().form_valid(form)
