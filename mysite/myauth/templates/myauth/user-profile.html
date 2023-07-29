@@ -1,19 +1,52 @@
 {% extends 'myauth/base.html' %}
 
 {% block title %}
-    About me
+  {% if request.user.id == profile.user.id %}
+  	About me
+  {% else %}
+    User ID: {{ profile.user.id }}
+  {% endif %}
 {% endblock %}
 
 {% block body %}
-    <h1>User info</h1>
-    {% if user.is_authenticated %}
-        <h2>Detail</h2>
-        <p>Username: {{ user.username }}</p>
-        <p>First name: {{ user.first_name }}</p>
-        <p>Last name: {{ user.last_name }}</p>
-        <p>Email: {{ user.email }}</p>
-        <p>Bio: {{ user.profile.bio }}</p>
+  {% if request.user.id == profile.user.id %}
+  	<h1>About me INFO</h1>
+  {% else %}
+    <h1>User ID: {{ profile.user.id }} INFO</h1>
+  {% endif %}
+  <h2>Detail</h2>
+
+  <p>Avatar:</p>
+  <div>
+    {% if profile.avatar %}
+      <img src="{{ profile.avatar.url }}"
+           alt="{{ profile.avatar.name }}"
+           width="300" height="300">
     {% else %}
-        <h2>User is anonymous</h2>
-    {% endif %} 
+      NO AVATAR
+    {% endif %}
+  </div><br>
+  {% if request.user.is_staff or request.user.id == profile.user.id %}
+  	<div>
+      <form action="{% url 'myauth:avatar' pk=profile.pk %}">
+        <button>
+          Upload Avatar
+        </button>
+      </form>
+    </div><br>
+  {% endif %}
+
+  <p>Username: {{ profile.user.username }}</p>
+  <p>First name: {{ profile.user.first_name }}</p>
+  <p>Last name: {{ profile.user.last_name }}</p>
+  <p>Email: {{ profile.user.email }}</p>
+  <p>Bio: {{ profile.user.profile.bio }}</p>
+
+  <div>
+    <p>
+      <a href="{% url 'myauth:profiles' %}">
+        Back to Users list
+      </a>
+    </p>
+  </div>
 {% endblock %}

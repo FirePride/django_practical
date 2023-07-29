@@ -1,15 +1,50 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.contrib.auth.views import LogoutView
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect, reverse
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import CreateView, DetailView, UpdateView, ListView
 
 from .models import Profile
 
 
-class ProfileView(TemplateView):
+class ProfilesListView(ListView):
+    template_name = 'myauth/users-list.html'
+    queryset = Profile.objects.all()
+    context_object_name = 'profiles'
+
+
+class ProfileDetailView(LoginRequiredMixin, DetailView):
     template_name = "myauth/user-profile.html"
+    model = Profile
+    context_object_name = 'profile'
+
+
+def profile_redirect(request: HttpRequest) -> HttpResponseRedirect:
+    return redirect(reverse(
+        "myauth:profile",
+        kwargs={"pk": request.user.id}
+    ))
+
+
+class AvatarUpdateView(UserPassesTestMixin, UpdateView):
+    def test_func(self):
+        if (self.request.user.is_staff or
+                self.request.user.id == self.get_object().user.id):
+            return True
+        return False
+
+    model = Profile
+    fields = 'avatar',
+    template_name = 'myauth/avatar_update_form.html'
+
+    def get_success_url(self):
+        return reverse(
+            "myauth:profile",
+            kwargs={"pk": self.object.pk}
+        )
 
 
 class RegisterView(CreateView):
