@@ -2,12 +2,23 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.contrib.auth.views import LogoutView
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
-from django.shortcuts import redirect, reverse
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import reverse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, ListView
 
 from .models import Profile
+
+
+class AboutMeView(UpdateView):
+    template_name = "myauth/user-profile.html"
+    model = Profile
+    fields = "avatar",
+
+    success_url = reverse_lazy("myauth:about-me")
+
+    def get_object(self, queryset=None):
+        return self.request.user.profile
 
 
 class ProfilesListView(ListView):
@@ -20,13 +31,6 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
     template_name = "myauth/user-profile.html"
     model = Profile
     context_object_name = 'profile'
-
-
-def profile_redirect(request: HttpRequest) -> HttpResponseRedirect:
-    return redirect(reverse(
-        "myauth:profile",
-        kwargs={"pk": request.user.id}
-    ))
 
 
 class AvatarUpdateView(UserPassesTestMixin, UpdateView):

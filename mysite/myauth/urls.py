@@ -9,7 +9,7 @@ from .views import (
     AvatarUpdateView,
     RegisterView,
     ProfilesListView,
-    profile_redirect
+    AboutMeView,
 )
 
 
@@ -24,7 +24,7 @@ urlpatterns = [
          ),
          name="login"),
     path("logout/", MyLogoutView.as_view(), name="logout"),
-    path("profile/", profile_redirect, name="about-me"),
+    path("profile/", AboutMeView.as_view(), name="about-me"),
     path("profile/<int:pk>/", ProfileDetailView.as_view(), name="profile"),
     path("profile/<int:pk>/avatar/", AvatarUpdateView.as_view(), name="avatar"),
     path("register/", RegisterView.as_view(), name="register"),

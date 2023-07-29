@@ -42,11 +42,15 @@
   <p>Email: {{ profile.user.email }}</p>
   <p>Bio: {{ profile.user.profile.bio }}</p>
 
+  <br>
   <div>
-    <p>
-      <a href="{% url 'myauth:profiles' %}">
-        Back to Users list
-      </a>
-    </p>
+    <a href="{% url 'myauth:profiles' %}">
+      Back to Users list
+    </a>
+  </div>
+  <div>
+    <a href="{% url 'myauth:logout' %}">
+      Logout
+    </a>
   </div>
 {% endblock %}
