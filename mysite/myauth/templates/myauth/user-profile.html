@@ -48,9 +48,11 @@
       Back to Users list
     </a>
   </div>
-  <div>
-    <a href="{% url 'myauth:logout' %}">
-      Logout
-    </a>
-  </div>
+  {% if request.user.id == profile.user.id %}
+  	<div>
+      <a href="{% url 'myauth:logout' %}">
+        Logout
+      </a>
+    </div>
+  {% endif %}
 {% endblock %}
