@@ -1,26 +1,43 @@
 {% extends 'shopapp/base.html' %}
 
+{% load i18n %}
+
 {% block title %}
-    Product #{{ product.pk }}
+    {% translate 'Product' %} #{{ product.pk }}
 {% endblock %}
 
 {% block body %}
-    <h1>Product <strong>{{ product.name }}</strong></h1>
+  <h1>{% translate 'Product' %} <strong>{{ product.name }}</strong></h1>
+  <div>
+      <p>{% translate 'Description' %}: <em>{{ product.description }}</em></p>
+      <p>{% translate 'Price' %}: {{ product.price }}</p>
+      <p>{% translate 'Discount' %}: {{ product.discount }}</p>
+      <p>{% translate 'Archived' %}: {{ product.archived }}</p>
+      <br>
+      <p>{% translate 'Created by' %}: {{ product.created_by.user.username }}</p>
+  </div>
+
+  <div>
+    {% blocktranslate count images_count=0 %}
+      There is one image.
+      {% plural %}
+      There are {{ images_count }} images.
+    {% endblocktranslate %}
+  </div><br>
+
+  {% url 'shopapp:product_update' pk=product.pk as product_update %}
+  {% url 'shopapp:product_archive' pk=product.pk as product_archive %}
+  {% url 'shopapp:products_list' as products_list %}
+
+  {% blocktranslate %}
     <div>
-        <p>Description: <em>{{ product.description }}</em></p>
-        <p>Price: {{ product.price }}</p>
-        <p>Discount: {{ product.discount }}</p>
-        <p>Archived: {{ product.archived }}</p>
-        <br>
-        <p>Created by: {{ product.created_by.user.username }}</p>
+        <a href="{{ product_update }}">Update product</a>
     </div>
     <div>
-        <a href="{% url 'shopapp:product_update' pk=product.pk %}">Update product</a>
+        <a href="{{ product_archive }}">Archive product</a>
     </div>
     <div>
-        <a href="{% url 'shopapp:product_archive' pk=product.pk %}">Archive product</a>
+        <a href="{{ products_list }}">Back to products list</a>
     </div>
-    <div>
-        <a href="{% url 'shopapp:products_list' %}">Back to products list</a>
-    </div>
+  {% endblocktranslate %}
 {% endblock %}
