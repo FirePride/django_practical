@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin
 from django.http import HttpRequest, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, reverse
@@ -10,6 +12,9 @@ from myauth.models import Profile
 from .models import Product, Order
 
 
+logger = logging.getLogger(__name__)
+
+
 def shop_index(request: HttpRequest):
     menu = [
         ('shopapp:products_list', 'products', 'Products in the shop'),
@@ -18,6 +23,8 @@ def shop_index(request: HttpRequest):
     context = {
         "menu": menu,
     }
+    logger.info("Rendering shop index")
+
     return render(request, 'shopapp/shop-index.html', context=context)
 
 
