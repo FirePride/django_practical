@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from myauth.models import Profile
@@ -17,6 +18,9 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     archived = models.BooleanField(default=False)
     created_by = models.ForeignKey(Profile, on_delete=models.PROTECT)
+
+    def get_absolute_url(self):
+        return reverse("shopapp:products_details", kwargs={"pk": self.pk})
 
     def __str__(self) -> str:
         return f'{self.pk}. "{self.name}"'

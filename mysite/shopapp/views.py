@@ -1,6 +1,7 @@
 import logging
 
 from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin
+from django.contrib.syndication.views import Feed
 from django.http import HttpRequest, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, reverse
 from django.urls import reverse_lazy
@@ -81,6 +82,26 @@ class ProductDeleteView(DeleteView):
         self.object.archived = True
         self.object.save()
         return HttpResponseRedirect(success_url)
+
+
+class LatestProductsFeed(Feed):
+    title = "Shop products (latest)"
+    description = "Updates on changes and addition shop products"
+    link = reverse_lazy("shopapp:products_list")
+
+    @staticmethod
+    def items():
+        return (
+            Product.objects
+            .filter(archived=False)
+            .order_by("-pk")[:5]
+        )
+
+    def item_title(self, item: Product):
+        return item.name
+
+    def item_description(self, item: Product):
+        return item.description[:200]
 
 
 class OrdersListView(ListView):

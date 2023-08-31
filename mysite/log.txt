@@ -26,3 +26,208 @@
 2023-08-28 01:26:26,630 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-08-28 01:26:47,509 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/mysite/settings.py changed, reloading.
 2023-08-28 01:26:48,253 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:33:29,151 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:33:31,645 [WARNING] django.request: Not Found: /
+2023-08-31 10:33:38,905 [WARNING] django.request: Not Found: /sitemaps
+2023-08-31 10:33:45,684 [WARNING] django.request: Not Found: /sitemaps.xml
+2023-08-31 10:33:55,582 [ERROR] django.request: Internal Server Error: /sitemap.xml
+Traceback (most recent call last):
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 34, in inner
+    response = func(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 128, in sitemap
+    urls.extend(site.get_urls(page=page, site=req_site, protocol=req_protocol))
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 167, in get_urls
+    return self._urls(page, protocol, domain)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 187, in _urls
+    loc = f"{protocol}://{domain}{self._location(item)}"
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 122, in _location
+    return self._get("location", item)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 92, in _get
+    return attr(item)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 132, in location
+    return item.get_absolute_url()
+  File "/home/firepride/PycharmProjects/python_django/mysite/shopapp/models.py", line 23, in get_absolute_url
+    return reverse("products_details", kwargs={"pk": self.pk})
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'products_details' not found. 'products_details' is not a valid view function or pattern name.
+2023-08-31 10:35:25,691 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/models.py changed, reloading.
+2023-08-31 10:35:26,237 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:57:30,705 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:57:31,093 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:58:06,958 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:58:07,394 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:58:13,808 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:58:14,158 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:58:23,595 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:58:23,959 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:58:32,346 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:58:32,779 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:58:46,261 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:58:46,704 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:58:58,187 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:58:58,672 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:59:06,090 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:59:06,462 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:59:10,787 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:59:11,138 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:59:17,453 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:59:17,937 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:59:40,618 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:59:41,098 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:59:45,509 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:59:45,958 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 10:59:50,313 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 10:59:50,783 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:00:05,302 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:00:05,647 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:00:54,786 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:00:55,136 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:01:16,776 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:01:17,156 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:01:29,596 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:01:29,922 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:01:38,357 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:01:38,793 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:01:43,080 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:01:43,435 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:01:50,771 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:01:51,126 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:02:06,620 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:02:07,109 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:02:43,062 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:02:43,436 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:02:50,791 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:02:51,193 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:03:07,748 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:03:08,203 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:03:44,147 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:03:44,568 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:04:24,597 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-08-31 11:04:25,026 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:04:47,711 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/urls.py changed, reloading.
+2023-08-31 11:04:48,176 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:04:55,572 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/urls.py changed, reloading.
+2023-08-31 11:04:55,933 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:05:22,775 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/urls.py changed, reloading.
+2023-08-31 11:05:23,126 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:05:29,429 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/urls.py changed, reloading.
+2023-08-31 11:05:29,776 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:05:37,109 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/urls.py changed, reloading.
+2023-08-31 11:05:37,513 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 11:05:41,833 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/urls.py changed, reloading.
+2023-08-31 11:05:42,187 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:01:07,842 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:03:43,133 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:03:43,603 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:03:56,922 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:03:57,237 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:04:19,857 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:04:20,171 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:04:29,439 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:04:29,783 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:04:35,014 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:04:35,369 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:04:41,684 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:04:42,275 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:04:51,737 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:04:52,161 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:04:58,496 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:04:58,932 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:05:05,295 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:05:05,721 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:05:14,117 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:05:14,551 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:05:19,790 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:05:20,201 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:05:30,494 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:05:30,802 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:05:33,009 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:05:35,441 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:05:42,852 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:05:43,270 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:06:05,926 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:06:06,298 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:06:14,694 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:06:15,130 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:06:23,537 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:06:24,091 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:06:27,374 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:06:27,708 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:06:32,941 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:06:33,375 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:06:37,680 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:06:38,120 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:06:42,432 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:06:42,902 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:06:45,289 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:06:45,717 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:06:59,019 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:06:59,326 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:07:03,586 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:07:03,973 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:07:07,269 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:07:07,834 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:07:11,169 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:07:11,607 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:07:17,873 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:07:18,290 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:07:38,922 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:07:39,364 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:07:59,987 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:08:00,423 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:08:02,794 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:08:03,222 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:08:09,597 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:08:10,036 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:08:18,456 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:08:18,882 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:08:35,213 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:08:35,599 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:08:42,872 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:08:43,265 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:08:48,543 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:08:48,904 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:08:52,159 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:08:52,604 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:08:56,882 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:08:57,239 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:09:02,473 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:09:02,889 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:09:11,285 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:09:11,769 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:09:18,035 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:09:18,559 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:09:30,114 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:09:30,463 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:09:34,719 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:09:35,075 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:09:40,348 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:09:40,677 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:09:43,934 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:09:44,468 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:09:51,930 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:09:52,369 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:10:01,792 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:10:02,326 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:10:09,699 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:10:10,195 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:10:18,614 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:10:19,090 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:10:23,361 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:10:23,718 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:10:27,003 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:10:27,438 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:10:48,067 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:10:48,510 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:11:08,131 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
+2023-08-31 12:11:08,579 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 12:14:43,885 [WARNING] django.request: Not Found: /favicon.ico
