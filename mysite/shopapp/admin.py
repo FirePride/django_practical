@@ -2,6 +2,7 @@ from io import TextIOWrapper
 from csv import DictReader
 
 from django.contrib import admin
+from django.contrib.auth.models import User
 from django.db.models import QuerySet
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
@@ -103,13 +104,29 @@ class OrderAdmin(admin.ModelAdmin):
             form.files["csv_file"].file,
             encoding=request.encoding
         )
+
         reader = DictReader(csv_file)
 
-        orders = [
-            Order(**row)
+        orders_list = [
+            row
             for row in reader
         ]
-        Order.objects.bulk_create(orders)
+
+        for order_info in orders_list:
+            order = Order.objects.create(
+                user=User.objects.get(username=order_info["user"]),
+                delivery_adress=order_info["delivery_adress"],
+                promocode=order_info["promocode"]
+            )
+
+            products = [
+                int(i_product)
+                for i_product in order_info["products"].split()
+            ]
+
+            for i_product in products:
+                order.products.add(i_product)
+
         self.message_user(request, "Data from CSV was imported")
         return redirect("..")
 

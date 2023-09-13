@@ -1,9 +1,10 @@
 import logging
 
 from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User
 from django.contrib.syndication.views import Feed
-from django.http import HttpRequest, HttpResponseRedirect, JsonResponse
-from django.shortcuts import render, reverse
+from django.http import HttpRequest, HttpResponseRedirect, JsonResponse, HttpResponse
+from django.shortcuts import render, reverse, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -162,3 +163,21 @@ class OrdersExportView(UserPassesTestMixin, View):
         ]
 
         return JsonResponse({"orders": orders_data})
+
+
+class UserOrdersListView(UserPassesTestMixin, ListView):
+    def test_func(self):
+        return self.request.user.is_authenticated
+
+    model = Order
+    template_name = "shopapp/orders-from-user.html"
+    context_object_name = "orders"
+
+    def get_queryset(self):
+        self.owner = get_object_or_404(User, id=self.kwargs['user_id'])
+        return Order.objects.filter(user=self.owner).order_by("pk")
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["owner"] = self.owner
+        return context

@@ -231,3 +231,372 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'products_details' not found.
 2023-08-31 12:11:08,131 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/admin.py changed, reloading.
 2023-08-31 12:11:08,579 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-08-31 12:14:43,885 [WARNING] django.request: Not Found: /favicon.ico
+2023-09-13 08:25:21,345 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 08:25:27,412 [WARNING] django.request: Not Found: /
+2023-09-13 08:25:53,138 [INFO] shopapp.views: Rendering shop index
+2023-09-13 08:26:24,023 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 135, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py", line 177, in get_queryset
+    self.owner = User.objects.get_or_404(pk=self.kwargs['user_id'])
+AttributeError: 'UserManager' object has no attribute 'get_or_404'
+2023-09-13 08:26:52,733 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-09-13 08:26:53,246 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 08:26:55,646 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'empty'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 28: 'empty', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+2023-09-13 08:31:52,200 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/test/utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/test/utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'profile' with keyword arguments '{'pk': ''}' not found. 1 pattern(s) tried: ['accounts/profile/(?P<pk>[0-9]+)/\\Z']
+2023-09-13 08:49:19,354 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-09-13 08:49:20,228 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 08:49:24,628 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-09-13 08:49:25,131 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 08:49:27,463 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-09-13 08:49:27,869 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 08:49:42,445 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-09-13 08:49:42,849 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 08:49:52,280 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-09-13 08:49:52,728 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 08:50:01,136 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-09-13 08:50:01,501 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 08:50:23,287 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-09-13 08:50:23,791 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 08:51:19,313 [WARNING] django.request: Not Found: /ru/shop/users/5/orders/
+2023-09-13 08:52:21,506 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-09-13 08:52:21,939 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 08:52:27,370 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-09-13 08:52:27,836 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 08:52:33,244 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-09-13 08:52:33,738 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 08:52:35,313 [WARNING] django.request: Not Found: /ru/shop/users/5/orders/
+2023-09-13 08:52:37,531 [WARNING] django.request: Not Found: /ru/shop/users/5/orders/
+2023-09-13 08:53:25,257 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/views.py changed, reloading.
+2023-09-13 08:53:25,781 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:30:14,083 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:30:14,854 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:33:51,790 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:33:52,154 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:35:07,913 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:35:08,313 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:35:18,763 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:35:21,119 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:35:30,544 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:35:30,917 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:35:44,487 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:35:44,930 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:35:48,362 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:35:48,935 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:36:09,672 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:36:10,039 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:36:17,476 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:36:17,841 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:36:32,419 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:36:32,878 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:36:40,275 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:36:40,700 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:36:47,040 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:36:47,461 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:37:15,199 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:37:15,624 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:37:20,997 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:37:21,417 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:37:25,751 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:37:26,123 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:37:33,521 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:37:33,942 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:37:38,279 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:37:38,670 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:38:16,639 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:38:17,193 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:38:45,995 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:38:46,447 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:38:55,857 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:38:56,263 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:39:14,829 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:39:15,219 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:39:27,852 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:39:28,289 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:39:33,652 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:39:34,119 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:39:39,523 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:39:40,086 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:39:44,543 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:39:45,135 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:39:52,552 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:39:53,018 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:40:07,545 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:40:07,973 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:40:25,575 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:40:26,010 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:40:33,421 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:40:33,903 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:40:37,290 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:40:37,656 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:40:42,014 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:40:42,513 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:40:45,855 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:40:46,249 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:40:55,791 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:40:56,268 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:41:01,601 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:41:01,997 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:41:12,440 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:41:12,815 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:42:08,098 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:42:08,468 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:42:53,548 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/urls.py changed, reloading.
+2023-09-13 09:42:53,930 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:43:27,880 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/urls.py changed, reloading.
+2023-09-13 09:43:28,410 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:43:38,378 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py", line 65, in get
+    return JsonResponse(data)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/http/response.py", line 724, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2023-09-13 09:43:57,316 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:43:58,290 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-13 09:44:34,890 [WARNING] django.request: Not Found: /ru/shop/users/5/orders/export/
+2023-09-13 09:46:23,722 [WARNING] django.request: Not Found: /ru/shops/
+2023-09-13 09:48:33,299 [ERROR] django.request: Internal Server Error: /ru/shop/users/3/orders/export/
+Traceback (most recent call last):
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py", line 58, in get
+    return JsonResponse(cached_data)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/http/response.py", line 724, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2023-09-13 09:48:48,267 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py", line 58, in get
+    return JsonResponse(cached_data)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/http/response.py", line 724, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2023-09-13 09:49:46,998 [ERROR] django.request: Internal Server Error: /ru/shop/users/3/orders/export/
+Traceback (most recent call last):
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py", line 58, in get
+    return JsonResponse(cached_data)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/http/response.py", line 724, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2023-09-13 09:50:10,684 [ERROR] django.request: Internal Server Error: /ru/shop/users/3/orders/export/
+Traceback (most recent call last):
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py", line 58, in get
+    return JsonResponse(cached_data)
+  File "/home/firepride/PycharmProjects/python_django/venv/lib/python3.10/site-packages/django/http/response.py", line 724, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2023-09-13 09:50:28,078 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
+2023-09-13 09:50:28,696 [INFO] django.utils.autoreload: Watching for file changes with StatReloader

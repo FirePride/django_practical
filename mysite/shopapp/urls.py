@@ -16,8 +16,9 @@ from .views import (
     OrderDeleteView,
     OrdersExportView,
     LatestProductsFeed,
+    UserOrdersListView,
 )
-from .api import ProductViewSet, OrderViewSet
+from .api import ProductViewSet, OrderViewSet, UserOrdersExportView
 
 app_name = "shopapp"
 
@@ -40,4 +41,6 @@ urlpatterns = [
     path("orders/update/<int:pk>", OrderUpdateView.as_view(), name="order_update"),
     path("orders/delete/<int:pk>", OrderDeleteView.as_view(), name="order_delete"),
     path("orders/export/", OrdersExportView.as_view(), name="orders-export"),
+    path("users/<int:user_id>/orders/", UserOrdersListView.as_view(), name="order_from_user"),
+    path("users/<int:user_id>/orders/export/", UserOrdersExportView.as_view(), name='user_orders_export'),
 ]
