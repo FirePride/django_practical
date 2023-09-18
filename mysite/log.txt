@@ -600,3 +600,6 @@ Traceback (most recent call last):
 TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
 2023-09-13 09:50:28,078 [INFO] django.utils.autoreload: /home/firepride/PycharmProjects/python_django/mysite/shopapp/api.py changed, reloading.
 2023-09-13 09:50:28,696 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-18 14:57:51,935 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-18 14:57:59,232 [WARNING] django.request: Not Found: /
+2023-09-18 14:58:09,839 [INFO] shopapp.views: Rendering shop index
