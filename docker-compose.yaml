@@ -5,12 +5,17 @@ services:
     build:
       dockerfile: ./Dockerfile
     command:
-      - "python"
-      - "manage.py"
-      - "runserver"
-      - "0.0.0.0:3813"
+      - "gunicorn"
+      - "mysite.wsgi:application"
+      - "--bind"
+      - "0.0.0.0:8000"
     ports:
-      - "8000:3813"
+      - "8000:8000"
+    restart: always
+    environment:
+      - DJANGO_DEBUG=1
+    volumes:
+      - ./mysite/database:/app/database
     logging:
       driver: loki
       options:
