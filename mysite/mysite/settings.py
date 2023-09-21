@@ -9,14 +9,16 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+from os import getenv
 from pathlib import Path
+import logging.config
 
 from django.utils.translation import gettext_lazy as _
 import sentry_sdk
 
 sentry_sdk.init(
-  dsn="https://19e4d717bff91013cf67d8b07e729421@o4505787855601664.ingest.sentry.io/4505787862089728",
-  traces_sample_rate=1.0
+    dsn="https://19e4d717bff91013cf67d8b07e729421@o4505787855601664.ingest.sentry.io/4505787862089728",
+    traces_sample_rate=1.0
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,20 +26,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DATABASE_DIR = BASE_DIR / "database"
 DATABASE_DIR.mkdir(exist_ok=True)
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--3=wlyq5qjbb5@_afx@i@c48c)@u%1ff_hka*s0&(+cjw8ep91'
+SECRET_KEY = getenv("DJANGO_SECRET_KEY",
+                    'django-insecure--3=wlyq5qjbb5@_afx@i@c48c)@u%1ff_hka*s0&(+cjw8ep91'
+                    )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = getenv("DJANGO_DEBUG", 0) == "1"
 
 ALLOWED_HOSTS = [
     "0.0.0.0",
     "127.0.0.1",
-]
+] + getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 INTERNAL_IPS = [
     "127.0.0.1"
@@ -45,12 +48,12 @@ INTERNAL_IPS = [
 
 if DEBUG:
     import socket
+
     hostname, junk, ips = socket.gethostbyname_ex(socket.gethostname())
     INTERNAL_IPS.append("10.0.2.2")
     INTERNAL_IPS.extend(
         [ip[: ip.rfind(".")] + ".1" for ip in ips]
     )
-
 
 # Application definition
 
@@ -108,7 +111,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -118,7 +120,6 @@ DATABASES = {
         'NAME': DATABASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -137,7 +138,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -190,11 +190,12 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
 }
 
+LOGLEVEL = getenv("DJANGO_LOGLEVEL", "info").upper()
 LOGFILE_NAME = BASE_DIR / "log.txt"
 LOGFILE_SIZE = 5 * (1024 ** 2)
 LOGFILE_COUNT = 3
 
-LOGGING = {
+logging.config.dictConfig({
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
@@ -220,6 +221,6 @@ LOGGING = {
             "console",
             "logfile"
         ],
-        "level": "INFO",
+        "level": LOGLEVEL,
     },
-}
+})
